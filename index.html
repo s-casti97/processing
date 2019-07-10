@@ -11,7 +11,7 @@
         <script type="text/processing">
 
             // Write your project here
-          // Dichiaro la variabile "angl", l'angolo di rotazione attorno al sole e ai pianeti
+          // Dichiaro le variabili "angl" e la variabile "r", l'angolo di rotazione attorno al sole e ai pianeti
 float angl = 0;
 int r = 200;
 
@@ -78,7 +78,7 @@ void draw() {
  popMatrix();
 
 
-// Pianeta terra veloce gira al contrario
+// Pianeta terra (verde) gira al contrario
  pushMatrix();
   rotate(-angl*3.5);
   translate(110, 0);
@@ -93,7 +93,7 @@ void draw() {
  popMatrix();
 popMatrix();
 
-// Pianeta Marte lento
+// Pianeta Marte rosso
   pushMatrix();
   rotate(angl);
   translate(75, 0);
@@ -101,7 +101,7 @@ popMatrix();
   ellipse(0, 0, 20, 20);
 popMatrix();
 
-// Giove con saetelliti
+// Pianeta Giove (marrone) con saetelliti
   pushMatrix();
   rotate(angl);
   translate(185, 0);
