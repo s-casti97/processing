@@ -11,52 +11,124 @@
         <script type="text/processing">
 
             // Write your project here
-            void setup() {
+          // Dichiaro la variabile "angl", l'angolo di rotazione attorno al sole e ai pianeti
+float angl = 0;
+int r = 200;
+
+void setup() {
   size(800, 800);
-  background(200);
-  smooth();
-  noStroke();
 }
-void draw() { 
- 
+
+void draw() {
+  background(0);
+  stroke(0);
+
+ // Disegno il sole.
+
   
-  if (frameCount % 10 == 0) {
-    fill(frameCount * 3 % 255, frameCount * 5 % 255,
-    frameCount * 7 % 255);
-    pushMatrix();
-    translate(200, 250);
-    rotate(radians(frameCount * 2  % 360));
-    rect(20, 20, 60, 40, 18);
-    popMatrix();
-  }                        
-  if (frameCount % 10 == 0) {
-    fill(frameCount * 3 % 700, frameCount * 5 % 500,
-    frameCount * 7 % 255);
-    pushMatrix();
-    translate(200, 250);
-    rotate(radians(frameCount * 2  % 360));
-    rect(5, 5, 30, 20, 9);
-    popMatrix();
-  }
-                if (frameCount % 10 == 0) {
-                fill(frameCount * 3 % 700, frameCount * 5 % 500,
-                frameCount * 7 % 255);
-                pushMatrix();
-                translate(600, 250);
-                rotate(radians(frameCount * 2  % 360));
-                rect(20, 20, 60, 40, 18);
-                popMatrix();
-                }
-                
-                if (frameCount % 10 == 0) {
-                fill(frameCount * 3 % 700, frameCount * 5 % 500,
-                frameCount * 7 % 255);
-                pushMatrix();
-                translate(600, 250);
-                rotate(radians(frameCount * 2  % 360));
-                rect(5, 5, 30, 20, 9);
-                popMatrix();
-                }        
+  translate(width/2, height/2);
+  rotate(radians(r));
+  fill(255, 200, 50);
+  ellipse(0, 0, 100, 100);
+  fill(255, 200, 50);
+  rect(-40, -40, 80, 80);
+  
+  
+   pushMatrix();
+  rotate(-angl*3);
+  translate(270, 0);
+  fill(64, 0, 128);
+  ellipse(0, 0, 25, 25);
+  //luna pianeta viola
+  pushMatrix();
+  rotate(angl*6);
+  translate(15, 0);
+  fill(150,255,200);
+  ellipse(0, 0, 4, 4);
+ popMatrix();
+ popMatrix();
+
+  // Pianeta blu senza satelliti
+ pushMatrix();
+  rotate(-angl);
+  translate(350, 0);
+  fill(0, 215, 250);
+  ellipse(0, 0, 32, 32);
+ // luna n.1 del pianeta blu 
+ pushMatrix();
+  rotate(angl*6);
+  translate(25, 0);
+  fill(150,255,200);
+  ellipse(0, 0, 6, 6);
+ popMatrix();
+  //luna n.2 del pianeta blu
+  pushMatrix();
+  rotate(-angl*4);
+  translate(35,0);
+  fill(150,255,200);
+  ellipse(0, 0, 10, 10);
+  popMatrix();
+  //luna n.3 del pianeta blu
+ pushMatrix();
+  rotate(angl*3);
+  translate(50,0);
+  fill(200,255,200);
+  ellipse(0, 0, 15, 15);
+  popMatrix();
+ popMatrix();
+
+
+// Pianeta terra veloce gira al contrario
+ pushMatrix();
+  rotate(-angl*3.5);
+  translate(110, 0);
+  fill(181, 230, 29);
+  ellipse(0, 0, 25, 25);
+  //luna della terra
+   pushMatrix();
+  rotate(angl*6);
+  translate(25, 0);
+  fill(150,255,200);
+  ellipse(0, 0, 6, 6);
+ popMatrix();
+popMatrix();
+
+// Pianeta Marte lento
+  pushMatrix();
+  rotate(angl);
+  translate(75, 0);
+  fill(250, 0, 0);
+  ellipse(0, 0, 20, 20);
+popMatrix();
+
+// Giove con saetelliti
+  pushMatrix();
+  rotate(angl);
+  translate(185, 0);
+  fill(162, 102, 68);
+  ellipse(0, 0, 40, 40);
+  
+
+  // La luna n.1 ruota intorno alla terra
+ pushMatrix();
+  rotate(angl*6);
+  translate(28, 0);
+  fill(50, 255, 200);
+  ellipse(0, 0, 6, 6);
+  popMatrix();
+  //
+  pushMatrix();
+  rotate(angl*4);
+  translate(40,0);
+  fill(150,255,200);
+  ellipse(0, 0, 10, 10);
+  popMatrix();
+
+  popMatrix();
+
+  angl += 0.01;
+  r += 1;
+  
 }
 
 
